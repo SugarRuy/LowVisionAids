@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0173)file:///C:/Users/XiaoFan/Desktop/2017%E5%B9%B4%E5%AF%92%E5%81%87%E4%BB%BB%E5%8A%A1/5.%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/LowVisionSystem2%20-%202017/html/LowVisionAids.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>LowVisionAids</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-01-18"><meta name="DC.source" content="LowVisionAids.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> varargout = LowVisionAids(varargin)
+<span class="comment">% LOWVISIONAIDS MATLAB code for LowVisionAids.fig</span>
+<span class="comment">%      LOWVISIONAIDS, by itself, creates a new LOWVISIONAIDS or raises the existing</span>
+<span class="comment">%      singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      H = LOWVISIONAIDS returns the handle to a new LOWVISIONAIDS or the handle to</span>
+<span class="comment">%      the existing singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      LOWVISIONAIDS('CALLBACK',hObject,eventData,handles,...) calls the local</span>
+<span class="comment">%      function named CALLBACK in LOWVISIONAIDS.M with the given input arguments.</span>
+<span class="comment">%</span>
+<span class="comment">%      LOWVISIONAIDS('Property','Value',...) creates a new LOWVISIONAIDS or raises the</span>
+<span class="comment">%      existing singleton*.  Starting from the left, property value pairs are</span>
+<span class="comment">%      applied to the GUI before LowVisionAids_OpeningFcn gets called.  An</span>
+<span class="comment">%      unrecognized property name or invalid value makes property application</span>
+<span class="comment">%      stop.  All inputs are passed to LowVisionAids_OpeningFcn via varargin.</span>
+<span class="comment">%</span>
+<span class="comment">%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one</span>
+<span class="comment">%      instance to run (singleton)".</span>
+<span class="comment">%</span>
+<span class="comment">% See also: GUIDE, GUIDATA, GUIHANDLES</span>
+
+<span class="comment">% Edit the above text to modify the response to help LowVisionAids</span>
+
+<span class="comment">% Last Modified by GUIDE v2.5 27-Aug-2016 01:48:39</span>
+
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+
+warning <span class="string">off</span>;
+
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @LowVisionAids_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @LowVisionAids_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+<span class="comment">% End initialization code - DO NOT EDIT</span>
+
+
+<span class="comment">% --- Executes just before LowVisionAids is made visible.</span>
+<span class="keyword">function</span> LowVisionAids_OpeningFcn(hObject, eventdata, handles, varargin)
+<span class="comment">% This function has no output args, see OutputFcn.</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% varargin   command line arguments to LowVisionAids (see VARARGIN)</span>
+ha=axes(<span class="string">'units'</span>,<span class="string">'normalized'</span>,<span class="string">'position'</span>,[0 0 1 1]);
+uistack(ha,<span class="string">'down'</span>)
+II=imread(<span class="string">'.\BK3.jpg'</span>);
+image(II);
+colormap <span class="string">gray</span>;
+set(ha,<span class="string">'handlevisibility'</span>,<span class="string">'off'</span>,<span class="string">'visible'</span>,<span class="string">'off'</span>);
+
+<span class="comment">% Choose default command line output for LowVisionAids</span>
+handles.output = hObject;
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+
+<span class="comment">% UIWAIT makes LowVisionAids wait for user response (see UIRESUME)</span>
+<span class="comment">% uiwait(handles.figure1);</span>
+
+
+<span class="comment">% --- Outputs from this function are returned to the command line.</span>
+<span class="keyword">function</span> varargout = LowVisionAids_OutputFcn(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% varargout  cell array for returning output args (see VARARGOUT);</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Get default command line output from handles structure</span>
+varargout{1} = handles.output;
+</pre><img vspace="5" hspace="5" src="./LowVisionAids_files/LowVisionAids_01.png" alt=""> <p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> ImgCollection_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to ImgCollection (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> ImgCapture_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to ImgCapture (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">%open('.\ImgCollection\CamOcxDemo2.html')</span>
+<span class="comment">%自己实现的图像采集功能</span>
+
+MyCamCapture();
+</pre><p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> ImgPreprocessing_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to ImgPreprocessing (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> ImgIllumination_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to ImgIllumination (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    I=handles.A;
+    [R, L] = deshade(I, 35);
+    handles.B=R;
+    handles.SV=R;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有选取图片！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> ImgTilte_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to ImgTilte (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    set(0,<span class="string">'defaultfigurecolor'</span>,<span class="string">'w'</span>)
+    I=handles.B;
+    <span class="comment">% 裁剪亮度调整结果图像的黑边</span>
+    I2=imcrop(I,[120,130,1500,2200]);
+
+    <span class="comment">% 对去黑边后的图像进行倾斜调整，并去除多余黑边</span>
+    im = I2;
+    <span class="keyword">if</span> isrgb(im)
+       im = rgb2gray(im);
+    <span class="keyword">end</span>
+
+    <span class="comment">% 估计旋转倾斜角度</span>
+    ang = deskew(im);
+    <span class="keyword">if</span> ang&lt;=90
+        ang2=-ang;
+    <span class="keyword">elseif</span> ang&gt;90 &amp;&amp; ang&lt;=180
+        ang2=180-ang;
+    <span class="keyword">end</span>
+    res2 = imrotate(im, ang2);
+
+    <span class="comment">% 去除多余黑边</span>
+    I3=imcrop(res2,[60,70,1400,2000]);
+    figure, imshow(I3);
+    title(<span class="string">'倾斜纠正后的结果'</span>);
+    <span class="comment">%imwrite(I3,'Img1_Prepro.jpg');</span>
+
+    handles.C=I3;
+    handles.SV=I3;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行亮度调整操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+</pre><p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> VisionHelp_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to VisionHelp (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> BLColor_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to BLColor (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> WBBL_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to WBBL (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% 设置显示图像背景为白色</span>
+<span class="keyword">try</span>
+    set(0,<span class="string">'defaultfigurecolor'</span>,<span class="string">'w'</span>)
+    <span class="comment">% 更换背景和字体颜色</span>
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I4= guidedfilterF(I);
+    figure,imshow(I4); <span class="comment">% 白底黑字</span>
+    <span class="comment">% 图像显示自动最大化</span>
+    set(gcf,<span class="string">'Position'</span>,get(0,<span class="string">'ScreenSize'</span>))
+    handles.D=I4;
+    handles.SV=I4;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行预处理操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> WBLL_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to WBLL (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    set(0,<span class="string">'defaultfigurecolor'</span>,<span class="string">'w'</span>)
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I5=255*ones(M,N,3);
+    <span class="keyword">for</span> i=1:M
+        <span class="keyword">for</span> j=1:N
+            <span class="keyword">if</span> I(i,j)==0
+                I5(i,j,1)=0;
+                I5(i,j,2)=0;
+                I5(i,j,3)=255;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    I5=uint8(I5);
+    I5 = guidedfilterF(I5);
+    figure,imshow(I5);
+    set(gcf,<span class="string">'Position'</span>,get(0,<span class="string">'ScreenSize'</span>))
+    handles.D=I5;
+    handles.SV=I5;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行预处理操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> BBWL_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to BBWL (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    set(0,<span class="string">'defaultfigurecolor'</span>,<span class="string">'black'</span>)
+    I=handles.C;
+    I=255*double(im2bw(I));
+    I6=255-I;
+    I6=uint8(I6);
+    I6 = guidedfilterF(I6);
+    figure,imshow(I6);
+    set(gcf,<span class="string">'Position'</span>,get(0,<span class="string">'ScreenSize'</span>))
+    handles.D=I6;
+    handles.SV=I6;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行预处理操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> BBYL_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to BBYL (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    set(0,<span class="string">'defaultfigurecolor'</span>,<span class="string">'black'</span>)
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I7=zeros(M,N,3);
+    <span class="keyword">for</span> i=1:M
+        <span class="keyword">for</span> j=1:N
+            <span class="keyword">if</span> I(i,j)==0
+                I7(i,j,1)=255;
+                I7(i,j,2)=255;
+                I7(i,j,3)=0;
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    I7=uint8(I7);
+    I7 = guidedfilterF(I7);
+    figure,imshow(I7);
+    set(gcf,<span class="string">'Position'</span>,get(0,<span class="string">'ScreenSize'</span>))
+    handles.D=I7;
+    handles.SV=I7;
+    guidata(hObject,handles);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行预处理操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> Magnifier_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to Magnifier (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    img_rgb=handles.C;
+    FPS = 20; <span class="comment">% The frame rate</span>
+    mask = <span class="string">'aacircle'</span>;
+    magnifierFunction(img_rgb,mask, FPS);
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'您可能还没有进行预处理操作！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+</pre><p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> DocumentRead_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to DocumentRead (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> PageRead_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to PageRead (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    delete <span class="string">./picture/*.jpg</span>
+    I=handles.C;
+    Rowseg(I);
+
+    <span class="comment">% 中/英文全文朗读</span>
+    FileStr=strcat(<span class="string">'.\picture'</span>,<span class="string">'\*.jpg'</span>);
+    files=dir(FileStr);
+    len=length(files);
+
+    <span class="keyword">for</span> i=1:len
+        I=imread(strcat(<span class="string">'.\picture\'</span>,int2str(i),<span class="string">'.'</span>,<span class="string">'jpg'</span>));
+        result{i} = ocr(I);
+        words{i}=result{i};
+    <span class="keyword">end</span>
+
+    a{1}=words{1,1}.Text;
+    <span class="keyword">for</span> i=2:len
+        a{i}=strcat(a{i-1},words{1,i}.Text);
+        fid=fopen(<span class="string">'.\picture\result.txt'</span>,<span class="string">'wt'</span>);
+        fprintf(fid,<span class="string">'%s\n'</span>,a{i});
+        fclose(fid);
+    <span class="keyword">end</span>
+
+    ex=importdata(<span class="string">'.\picture\result.txt'</span>);
+    len=length(ex);
+    <span class="keyword">for</span> i=1:len
+        tts(ex{i,1});
+    <span class="keyword">end</span>
+
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'请先进行预处理操作或关闭放大镜！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">end</span>
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> LineRead_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to LineRead (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="keyword">try</span>
+    delete <span class="string">./picture/*.jpg</span>
+    I=handles.C;
+    Rowseg(I);
+    GUITest
+<span class="keyword">catch</span>
+    errordlg(<span class="string">'请先进行预处理操作或关闭放大镜！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+ <span class="keyword">end</span>
+</pre><p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> File_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to File (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">%</span>
+<span class="comment">% 打开图像子菜单</span>
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> Open_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to Open (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+[filename,pathname]=uigetfile({<span class="string">'*.*'</span>;<span class="string">'*.bmp'</span>;<span class="string">'*.jpg'</span>;<span class="string">'*.tif'</span>;<span class="string">'*.jpg'</span>},<span class="string">'选择图像'</span>);
+<span class="keyword">if</span> isequal(filename,0)||isequal(pathname,0)
+    errordlg(<span class="string">'您还没有选取图片！！'</span>,<span class="string">'温馨提示'</span>);<span class="comment">%如果没有输入，则创建错误对话框</span>
+    <span class="keyword">return</span>;
+<span class="keyword">else</span>
+    image=[pathname,filename];<span class="comment">%合成路径+文件名</span>
+    im=imread(image);<span class="comment">%读取图像</span>
+    figure,imshow(im);<span class="comment">%在坐标axes1显示原图像</span>
+    title(<span class="string">'原始图像'</span>);
+    handles.A=imread(image);
+    guidata(hObject,handles);
+<span class="keyword">end</span>
+
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% 保存图像子菜单</span>
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> Save_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to Save (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+[filename,pathname]=uiputfile({<span class="string">'*.bmp'</span>;<span class="string">'*.jpg'</span>},<span class="string">'保存图片'</span>,<span class="string">'Undefined.jpg'</span>);
+
+<span class="keyword">if</span> ~isequal(filename,0)
+    str=[pathname filename];
+    I=handles.SV;
+    imwrite(I,strcat(str,<span class="string">'.jpg'</span>));
+    <span class="comment">%close(gcf);</span>
+<span class="keyword">else</span>
+    disp(<span class="string">'保存图像失败！'</span>);
+<span class="keyword">end</span>
+
+
+<span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="comment">% 退出子菜单</span>
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> Exit_Callback(hObject, eventdata, handles)
+</pre><pre class="codeinput"><span class="comment">% hObject    handle to Exit (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+close(gcf);
+clear
+close <span class="string">all</span>
+clc
+</pre><p>--------------------------------------------------------------------</p><pre class="codeinput"><span class="keyword">function</span> Help_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to Help (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+
+<span class="comment">% --------------------------------------------------------------------</span>
+<span class="keyword">function</span> About_Callback(hObject, eventdata, handles)
+<span class="comment">% hObject    handle to About (see GCBO)</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+aa = [<span class="string">'版本V1.0       '</span>;<span class="string">'郭璠，符腾木，廖成，肖晏如'</span>;<span class="string">'中南大学         '</span>;<span class="string">'2016/09/01   '</span>];
+msgbox(aa,<span class="string">'关于'</span>);
+
+warning <span class="string">on</span>;
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB® R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function varargout = LowVisionAids(varargin)
+% LOWVISIONAIDS MATLAB code for LowVisionAids.fig
+%      LOWVISIONAIDS, by itself, creates a new LOWVISIONAIDS or raises the existing
+%      singleton*.
+%
+%      H = LOWVISIONAIDS returns the handle to a new LOWVISIONAIDS or the handle to
+%      the existing singleton*.
+%
+%      LOWVISIONAIDS('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in LOWVISIONAIDS.M with the given input arguments.
+%
+%      LOWVISIONAIDS('Property','Value',...) creates a new LOWVISIONAIDS or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before LowVisionAids_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to LowVisionAids_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help LowVisionAids
+
+% Last Modified by GUIDE v2.5 27-Aug-2016 01:48:39
+
+% Begin initialization code - DO NOT EDIT
+
+warning off;
+
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @LowVisionAids_OpeningFcn, ...
+                   'gui_OutputFcn',  @LowVisionAids_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% REPLACE_WITH_DASH_DASH- Executes just before LowVisionAids is made visible.
+function LowVisionAids_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to LowVisionAids (see VARARGIN)
+ha=axes('units','normalized','position',[0 0 1 1]);
+uistack(ha,'down')
+II=imread('.\BK3.jpg');
+image(II);
+colormap gray;
+set(ha,'handlevisibility','off','visible','off');
+
+% Choose default command line output for LowVisionAids
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes LowVisionAids wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% REPLACE_WITH_DASH_DASH- Outputs from this function are returned to the command line.
+function varargout = LowVisionAids_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function ImgCollection_Callback(hObject, eventdata, handles)
+% hObject    handle to ImgCollection (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function ImgCapture_Callback(hObject, eventdata, handles)
+% hObject    handle to ImgCapture (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+%open('.\ImgCollection\CamOcxDemo2.html')
+%自己实现的图像采集功能
+
+MyCamCapture();
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function ImgPreprocessing_Callback(hObject, eventdata, handles)
+% hObject    handle to ImgPreprocessing (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function ImgIllumination_Callback(hObject, eventdata, handles)
+% hObject    handle to ImgIllumination (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    I=handles.A;
+    [R, L] = deshade(I, 35);
+    handles.B=R;
+    handles.SV=R;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有选取图片！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function ImgTilte_Callback(hObject, eventdata, handles)
+% hObject    handle to ImgTilte (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    set(0,'defaultfigurecolor','w') 
+    I=handles.B;
+    % 裁剪亮度调整结果图像的黑边
+    I2=imcrop(I,[120,130,1500,2200]);
+
+    % 对去黑边后的图像进行倾斜调整，并去除多余黑边
+    im = I2;
+    if isrgb(im)
+       im = rgb2gray(im);
+    end
+
+    % 估计旋转倾斜角度
+    ang = deskew(im);
+    if ang<=90
+        ang2=-ang;
+    elseif ang>90 && ang<=180
+        ang2=180-ang;
+    end
+    res2 = imrotate(im, ang2);
+
+    % 去除多余黑边
+    I3=imcrop(res2,[60,70,1400,2000]);
+    figure, imshow(I3);
+    title('倾斜纠正后的结果');
+    %imwrite(I3,'Img1_Prepro.jpg');
+
+    handles.C=I3;
+    handles.SV=I3;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有进行亮度调整操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function VisionHelp_Callback(hObject, eventdata, handles)
+% hObject    handle to VisionHelp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function BLColor_Callback(hObject, eventdata, handles)
+% hObject    handle to BLColor (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function WBBL_Callback(hObject, eventdata, handles)
+% hObject    handle to WBBL (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% 设置显示图像背景为白色
+try
+    set(0,'defaultfigurecolor','w') 
+    % 更换背景和字体颜色
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I4= guidedfilterF(I);
+    figure,imshow(I4); % 白底黑字
+    % 图像显示自动最大化
+    set(gcf,'Position',get(0,'ScreenSize'))
+    handles.D=I4;
+    handles.SV=I4;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有进行预处理操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function WBLL_Callback(hObject, eventdata, handles)
+% hObject    handle to WBLL (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    set(0,'defaultfigurecolor','w') 
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I5=255*ones(M,N,3);
+    for i=1:M
+        for j=1:N
+            if I(i,j)==0
+                I5(i,j,1)=0;
+                I5(i,j,2)=0;
+                I5(i,j,3)=255;
+            end
+        end
+    end
+    I5=uint8(I5);
+    I5 = guidedfilterF(I5);
+    figure,imshow(I5);
+    set(gcf,'Position',get(0,'ScreenSize'))
+    handles.D=I5;
+    handles.SV=I5;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有进行预处理操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function BBWL_Callback(hObject, eventdata, handles)
+% hObject    handle to BBWL (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    set(0,'defaultfigurecolor','black')
+    I=handles.C;
+    I=255*double(im2bw(I));
+    I6=255-I;
+    I6=uint8(I6);
+    I6 = guidedfilterF(I6);
+    figure,imshow(I6);
+    set(gcf,'Position',get(0,'ScreenSize'))
+    handles.D=I6;
+    handles.SV=I6;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有进行预处理操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function BBYL_Callback(hObject, eventdata, handles)
+% hObject    handle to BBYL (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    set(0,'defaultfigurecolor','black')
+    I=handles.C;
+    I=255*double(im2bw(I));
+    [M,N]=size(I);
+    I7=zeros(M,N,3);
+    for i=1:M
+        for j=1:N
+            if I(i,j)==0
+                I7(i,j,1)=255;
+                I7(i,j,2)=255;
+                I7(i,j,3)=0;
+            end
+        end
+    end
+    I7=uint8(I7);
+    I7 = guidedfilterF(I7);
+    figure,imshow(I7);
+    set(gcf,'Position',get(0,'ScreenSize'))
+    handles.D=I7;
+    handles.SV=I7;
+    guidata(hObject,handles);
+catch
+    errordlg('您可能还没有进行预处理操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function Magnifier_Callback(hObject, eventdata, handles)
+% hObject    handle to Magnifier (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    img_rgb=handles.C;
+    FPS = 20; % The frame rate
+    mask = 'aacircle';
+    magnifierFunction(img_rgb,mask, FPS);
+catch
+    errordlg('您可能还没有进行预处理操作！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function DocumentRead_Callback(hObject, eventdata, handles)
+% hObject    handle to DocumentRead (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function PageRead_Callback(hObject, eventdata, handles)
+% hObject    handle to PageRead (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    delete ./picture/*.jpg
+    I=handles.C;
+    Rowseg(I);
+     
+    % 中/英文全文朗读
+    FileStr=strcat('.\picture','\*.jpg');
+    files=dir(FileStr);
+    len=length(files);
+
+    for i=1:len
+        I=imread(strcat('.\picture\',int2str(i),'.','jpg'));
+        result{i} = ocr(I); 
+        words{i}=result{i};
+    end
+    
+    a{1}=words{1,1}.Text;
+    for i=2:len
+        a{i}=strcat(a{i-1},words{1,i}.Text);
+        fid=fopen('.\picture\result.txt','wt');
+        fprintf(fid,'%s\n',a{i});
+        fclose(fid);
+    end
+    
+    ex=importdata('.\picture\result.txt');
+    len=length(ex);
+    for i=1:len
+        tts(ex{i,1});
+    end
+
+catch
+    errordlg('请先进行预处理操作或关闭放大镜！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+end
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function LineRead_Callback(hObject, eventdata, handles)
+% hObject    handle to LineRead (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+try
+    delete ./picture/*.jpg
+    I=handles.C;
+    Rowseg(I);
+    GUITest
+catch
+    errordlg('请先进行预处理操作或关闭放大镜！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+ end
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function File_Callback(hObject, eventdata, handles)
+% hObject    handle to File (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+%
+% 打开图像子菜单
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function Open_Callback(hObject, eventdata, handles)
+% hObject    handle to Open (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+  
+[filename,pathname]=uigetfile({'*.*';'*.bmp';'*.jpg';'*.tif';'*.jpg'},'选择图像');
+if isequal(filename,0)||isequal(pathname,0)
+    errordlg('您还没有选取图片！！','温馨提示');%如果没有输入，则创建错误对话框  
+    return;
+else
+    image=[pathname,filename];%合成路径+文件名
+    im=imread(image);%读取图像
+    figure,imshow(im);%在坐标axes1显示原图像
+    title('原始图像');
+    handles.A=imread(image);
+    guidata(hObject,handles); 
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 保存图像子菜单
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function Save_Callback(hObject, eventdata, handles)
+% hObject    handle to Save (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[filename,pathname]=uiputfile({'*.bmp';'*.jpg'},'保存图片','Undefined.jpg');
+
+if ~isequal(filename,0)
+    str=[pathname filename];
+    I=handles.SV;
+    imwrite(I,strcat(str,'.jpg'));
+    %close(gcf);
+else
+    disp('保存图像失败！');
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 退出子菜单
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function Exit_Callback(hObject, eventdata, handles)
+% hObject    handle to Exit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+close(gcf);
+clear
+close all
+clc
+
+%%
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function Help_Callback(hObject, eventdata, handles)
+% hObject    handle to Help (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+function About_Callback(hObject, eventdata, handles)
+% hObject    handle to About (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+aa = ['版本V1.0       ';'郭璠，符腾木，廖成，肖晏如';'中南大学         ';'2016/09/01   '];
+msgbox(aa,'关于');
+
+warning on;
+
+##### SOURCE END #####
+--></body></html>
